@@ -5,11 +5,11 @@
 		<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
 		<script src="jquery.skeleton.js"></script>
 		<script type="text/javascript">
-		var plug = $('#foo').skeleton();
-			plug.bar();
+		var plug = $('.b').skeleton(); // is te snel met executen maar zou moeten werken in de footer
+			plug.skeleton('bar'); // doet niks
 		jQuery(document).ready(function(){
 			var plugA = jQuery('.a').skeleton();
-			plugA.bar(); // werkt niet :(
+			plugA.skeleton('bar'); // werkt 
 		});
 		</script>
 	</head>

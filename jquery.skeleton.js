@@ -1,49 +1,40 @@
-(function($){
+;(function($, window, document, undefined){
+    var defaults = {
+        label: 'yeahhhhh'
+    };
 
-$.fn.skeleton = function(options) {
+    var optionss = {
+        "init": function (options) {
+            options = $.extend({}, defaults, options);
+            // Do whatever
+            console.log('init');
+        },
+        "bar": function (options) {
+            // Do whatever
+            console.log('boem!');
+        }
+    };
 
-    // support multiple elements
-		if (this.length > 1){
-        
-        this.each(function() { 
-            $(this).skeleton(options) 
+    $.fn.skeleton = function(options) { 
+        var args = arguments;
+        var argss = Array.prototype.slice.call(args, 1);
+
+        return this.each(function() {
+            var $this = $(this);  // Might make sense to ignore this and just pass `this` to the following things
+            if (optionss[options]) {
+                optionss[options].apply($this, argss);
+            }
+            else if (typeof options === "object" || !options) {
+                optionss.init.apply($this, args);
+            }
+            else {
+                $.error("options " + options + " does not exist on jQuery.pollServer");
+            }
         });
-
-        return this;
-    }
-
-    // private variables
-    var pOne = '';
-    var pTwo = '';
-    // ...
-
-    // private methods
-    var foo = function() {
-        // do something ...
-        console.log("foo");
-    }
-    // ...
-
-    // public methods        
-    this.initialize = function() {
-        // do something ...
-        console.log("init");
-
-        return this;
     };
+})(jQuery, window, document);
 
-    this.bar = function() {
-        // do something ...
-        console.log("bar");
-        console.log(this);
-    };
-
-    return this.initialize();
-}
-})(jQuery);
-
-var myPlugin = $('#foo').skeleton();
-myPlugin.bar();
-
-var myPlugin2 = $('#bar').skeleton();
-myPlugin2.bar();
+/*
+http://stackoverflow.com/a/13131363
+So to call init, you can either use $("#a").pluggg({stuff: "stuff"}); or $("#a").pluggg("init", {stuff: "stuff"});. To call myFunc, you'd use the second example for init, but use "myFunc". Does that all make sense?
+*/
