@@ -5,11 +5,10 @@
 		<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
 		<script src="jquery.skeleton.js"></script>
 		<script type="text/javascript">
-		var plug = $('.b').skeleton(); // is te snel met executen maar zou moeten werken in de footer
-			plug.skeleton('bar'); // doet niks
 		jQuery(document).ready(function(){
 			var plugA = jQuery('.a').skeleton();
-			plugA.skeleton('bar'); // werkt 
+			$(plugA[1]).skeleton('bar', {color: 'red'}); // werkt 
+			$(plugA[2]).skeleton('bar', {color: 'deeppink', 'label': 'lawl'}); // werkt 
 		});
 		</script>
 	</head>
@@ -19,4 +18,8 @@
 		<div class="a">a</div>
 		<div class="b">b</div>
 	</body>
+	<script type="text/javascript">
+		var plug = $('.b').skeleton(); // is te snel met executen maar zou moeten werken in de footer
+		plug.skeleton('bar'); // doet niks
+	</script>
 </html>
