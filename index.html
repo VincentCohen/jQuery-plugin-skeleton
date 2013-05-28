@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Testcase</title>
+		<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+		<script src="jquery.skeleton.js"></script>
+		<script type="text/javascript">
+		var plug = $('#foo').skeleton();
+			plug.bar();
+		jQuery(document).ready(function(){
+			var plugA = jQuery('.a').skeleton();
+			plugA.bar(); // werkt niet :(
+		});
+		</script>
+	</head>
+	<body>
+		<div class="a">a</div>
+		<div class="a">a</div>
+		<div class="a">a</div>
+		<div class="b">b</div>
+	</body>
+</html>
