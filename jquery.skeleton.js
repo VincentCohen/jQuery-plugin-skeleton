@@ -5,17 +5,31 @@
 	};
 
 	var optionss = {
+		"username": "mauz0r",
+
 		"init": function (options) {
 			options = $.extend({}, defaults, options);
 			// Do whatever
+			console.log(optionss.getUsername());
+			optionss.setUsername("mau");
+
 			console.log('init');
 			this.css('color', options.color);
 		},
 		"bar": function (options) {
 			// Do whatever
 			console.log('boem!');
+
+			console.log(optionss.getUsername());
+
 			options = $.extend({}, defaults, options);
 			this.css('color', options.color).text(this.text() + ' ' + options.label);
+		},
+		"getUsername": function() {
+			return this.username;
+		}, 
+		"setUsername": function(name) {
+			this.username = name;
 		}
 	};
 
